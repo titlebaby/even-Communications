@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+ssss
+</body>
+</html>
+<script src="test.js"></script>
+<script>
+	var conn = new ab.Session('ws://chat.dev:8080',
+			function() {
+				conn.subscribe('kittensCategory', function(topic, data) {
+					// This is where you would add the new article to the DOM (beyond the scope of this tutorial)
+					console.log('New article published to category "' + topic + '" : ' + data.title);
+				});
+			},
+			function() {
+				console.warn('WebSocket connection closed');
+			},
+			{'skipSubprotocolCheck': true}
+	);
+</script>
